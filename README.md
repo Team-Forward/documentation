@@ -14,6 +14,13 @@ Here's an other [page](guide.md ':include')
 1. After, you simply has to install **the news app**<br>
 1. **Done !** -->
 
+# A l'attention de Team-Forward
+>Pour faire tourner cette page sur **docsify**, il faut run les commandes suivante :
+```bash
+npm i docsify-cli -g # Installation de docsify en global
+docsify serve # Lancement du serveur en localhost
+```
+
 # Partage des articles présents dans News
 **Fonctionnalité de partage entre les utilisateurs du serveur nextcloud ainsi que sur les réseaux sociaux.**
 ## Partage entre utilisateurs du serveur Nextcloud
