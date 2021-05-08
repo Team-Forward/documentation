@@ -1,5 +1,5 @@
 # Nextcloud News Test Run Results
-[Retour à la documentation](/README.md)
+[Retour à la documentation](/README?id=tests)
 ## Utilisation
 Lancer le jeu complet de tests avec `make test`.
 
