@@ -66,5 +66,6 @@ Afin de mieux référencer le *tweet*, les **catégories** qui ont pu être impo
 >Pour réaliser cette fonctionnalité, les catégories de l'article sont stockées depuis le flux RSS dans la table `oc_news_items` sous un format **JSON**. Les catégories de chacun des articles sont transmises dans la réponse provenant du serveur lors de l'affichage de ces derniers. 
 ## Gestion côté serveur (event listener + paramètre dans table)
 # Tests
+Veuillez consulter [ce lien](/tests) pour obtenir plus d'informations. 
 # Pulls requests
 
