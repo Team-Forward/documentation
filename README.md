@@ -46,6 +46,18 @@ Côté **back-end**, voici l'architecture utilisée :<br><br>
 >```php
 shareItemWithUser(string $userId, int $itemId, string $shareRecipientId) //Partage d'un article d'un utilisateur à l'autre
 
+## Flux par défaut
+### Fonctionnalité  
+Les flux par défaut sont **paramétrables uniquement par les administrateurs** du serveur Nextcloud depuis la page “paramètres” de l’application news.<br>
+Lors de l'ajout d'un flux, celui-ci se retrouve dans le dossier "*Flux par défaut*". Si le dossier n'existe pas, il est créé.<br>
+[Démarche pour modifier la liste](/manual?id=ajout-de-flux). 
+### Gestion back-end
+Les flux par défaut sont ajoutés pour un utilisateur lors de sa connexion.<br>
+Comme l'indique la documentation Nextcloud, un **Event listener** a été créé (`UserLoggedInListener`) afin de détecter la connexion d'un utilisateur. Une fois la connexion détectée (`UserLoggedInEvent` *de Nextcloud*), un traitement compare la liste des flux par défaut présents dans le dossier en question de l'utilisateur : **si un flux est manquant, il est ajouté**.  
+>Il est important de noter que ce traitement prolonge le temps de connexion d'un utilisateur lorsqu'un article par défaut est manquant (*quelques secondes pour l'ajout d'un article*).<br>
+Les flux par défaut sont stockés dans la table des paramètres d'application sous forme de **JSON** (*attribut `defaultFeeds` dans `oc_appconfig`*).
+
+
 ## Réseaux sociaux
 ### Fonctionnalité et réseaux disponibles 
 Pour partager des articles avec des personnes n'étant pas forcément présentes sur le serveur Nextcloud, il a été intégré une fonctionnalitée de partage sur les réseaux sociaux à l'aide de **3 boutons**.<br>
@@ -60,11 +72,13 @@ Afin de réaliser une intégration plus forte sur le partage des réseaux sociau
 >Il est important de noter que sur **Facebook**, pour des raisons de limitations techniques du côté du réseau social, il n'est possible d'importer qu'**un seul hashtag**.   
 #### Hashtags par défauts 
 Comme le montre la capture [ci-dessus](/?id=fonctionnalité-et-réseaux-disponibles), **Les administrateurs** du serveur Nextcloud ont la possibilité d'**ajouter des hashtags** qui seront proposés **par défaut** lors d'un partage sur les réseaux sociaux. **L'utilisateur** choisi lors du partage les hashtags par défaut qu'**il a sélectionné**.<br>
->Les hashtags par défaut sont stockés dans la table des paramètres des applciations `oc_apps_params`.
+[Démarche pour modifier la liste](/manual?id=ajout-de-hashtags). 
+>Les hashtags par défaut sont stockés dans la table des paramètres des applications (*attribut `customHashtags` dans `oc_appconfig`*).<br>
+**Il faut nécessairement être administrateur pour modifier cette liste**.
+
 #### Hashtags personnalisés
 Afin de mieux référencer le *tweet*, les **catégories** qui ont pu être importées depuis le **flux RSS** sont importés sur le post. Cela permet d'ajouter des **hashtags de manière automatique**.<br>
 >Pour réaliser cette fonctionnalité, les catégories de l'article sont stockées depuis le flux RSS dans la table `oc_news_items` sous un format **JSON**. Les catégories de chacun des articles sont transmises dans la réponse provenant du serveur lors de l'affichage de ces derniers. 
-## Gestion côté serveur (event listener + paramètre dans table)
 # Tests
 Veuillez consulter [ce lien](/tests) pour obtenir plus d'informations. 
 # Pulls requests
