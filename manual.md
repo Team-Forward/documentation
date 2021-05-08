@@ -1,5 +1,7 @@
 # Manuel d'utilisation
 
+[Accès à la documentation](/README)
+
 L'application News, découlant du logiciel Open-Source Nextcloud, est un lecteur de flux RSS.
 Il permet ainsi aux utilisateurs de s'abonner aux flux qu'ils souhaitent et donc de recevoir les nouveautés en temps réel.
 
