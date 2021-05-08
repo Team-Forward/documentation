@@ -29,7 +29,7 @@ L’application **News** ne comportait aucune fonctionnalité de partage avant l
 ### Interface
 L'interface se présente de la manière suivante :<br>
 ![interface](/img/dropdown_nohashtags.png)
->L'utilisateur peut rechercher à l'aide de la **bare de recherche** un autre utilisateur pour lequel il veut envoyer un article.<br>Quand une requête de recherche est **en attente de réponse**, la recheche passe dans un état de **loading** (`isLoading = true`) et informe l'utilisateur que sa requête est en cours de traitement.  
+>L'utilisateur peut rechercher à l'aide de la **barre de recherche** un autre utilisateur pour lequel il veut envoyer un article.<br>Quand une requête de recherche est **en attente de réponse**, la recheche passe dans un état de **loading** (`isLoading = true`) et informe l'utilisateur que sa requête est en cours de traitement.  
 
 Afin d’obtenir les contacts présents sur le serveur avec lesquels nous pouvons partager les articles, il est nécessaire de l'interroger depuis la partie front-end. 
 L’implémentation actuelle de la partie front-end est implémentée en angularJS. Cette technologie est ancienne et n’a pas profité des dernières mises à jour de l’API Nextcloud. Nous avons alors été contraints d’utiliser une forme de l’API obsolète. 
@@ -56,15 +56,14 @@ Pour partager des articles avec des personnes n'étant pas forcément présentes
 1. Partage par **Mail**.
 
 ### Hashtags
-Afin d'intégrer une intégration plus forte sur le partage des réseaux sociaux, des `hashtags` peuvent être ajoutés **manuellement** ou **automatiquement**.  
+Afin de réaliser une intégration plus forte sur le partage des réseaux sociaux, des `hashtags` peuvent être ajoutés **manuellement** ou **automatiquement**.  
 >Il est important de noter que sur **Facebook**, pour des raisons de limitations techniques du côté du réseau social, il n'est possible d'importer qu'**un seul hashtag**.   
 #### Hashtags par défauts 
-Comme le montre la capture [ci-dessus](/?id=fonctionnalité-et-réseaux-disponibles), **Les administrateurs** du serveur Nextcloud ont la possibilité d'**ajouter des hashtags** qui seront proposés **par défaut** lors d'un partage sur les réseaux sociaux. **L'utilisateur** choisi lors du partage les hashtags par défaut qu'**il a sélectionné**. 
+Comme le montre la capture [ci-dessus](/?id=fonctionnalité-et-réseaux-disponibles), **Les administrateurs** du serveur Nextcloud ont la possibilité d'**ajouter des hashtags** qui seront proposés **par défaut** lors d'un partage sur les réseaux sociaux. **L'utilisateur** choisi lors du partage les hashtags par défaut qu'**il a sélectionné**.<br>
+>Les hashtags par défaut sont stockés dans la table des paramètres des applciations `oc_apps_params`.
 #### Hashtags personnalisés
-# Partage de feeds par défaut
-## Fonctionnalité
-## Interface administrateur 
-## Interface utilisateur 
+Afin de mieux référencer le *tweet*, les **catégories** qui ont pu être importées depuis le **flux RSS** sont importés sur le post. Cela permet d'ajouter des **hashtags de manière automatique**.<br>
+>Pour réaliser cette fonctionnalité, les catégories de l'article sont stockées depuis le flux RSS dans la table `oc_news_items` sous un format **JSON**. Les catégories de chacun des articles sont transmises dans la réponse provenant du serveur lors de l'affichage de ces derniers. 
 ## Gestion côté serveur (event listener + paramètre dans table)
 # Tests
 # Pulls requests
