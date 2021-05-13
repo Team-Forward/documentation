@@ -64,7 +64,7 @@ Ci-dessous les pulls requests concernée par ce projet :
 - ✔️ [Share feature / Back-end](https://github.com/nextcloud/news/pull/1191)
 - ✔️ [Share feature / Front-end](https://github.com/nextcloud/news/pull/1217)
 - ✔️ [Import catagories](https://github.com/nextcloud/news/pull/1248)
--❌ [Default feeds](https://github.com/nextcloud/news/pull/1255) *(Mainteners non intéressés mais fonctionnalité présente dans la version de notre dépôt)*
+- ❌ [Default feeds](https://github.com/nextcloud/news/pull/1255) *(Mainteners non intéressés mais fonctionnalité présente dans la version de notre dépôt)*
 ## Dépôt de Team Forward
 - ✔️ [Default feeds](https://gitlab.unistra.fr/team-forward/news/-/merge_requests/1)
 - ✔️ [Custom hashtags](https://gitlab.unistra.fr/team-forward/news/-/merge_requests/2)
